@@ -1,0 +1,18 @@
+<div class="container mt-3" *ngIf="!loadSpainner">
+
+<div class="mb-2 w-25"  >
+    <app-select [data]="categories" [title]="'Categories'" (selectionValue)="getProductsByCategory($event)"></app-select>
+</div>
+<hr>
+<div class="row" >
+    <div class="card card-style col-md-4 col-sm-12 m-3" style="width: 18rem;"  *ngFor="let item of products;" >
+        <app-product [data]="item" (item)="addToCart($event)"></app-product>
+    </div>
+</div>
+
+  
+</div>
+
+<div class="text-center w-100 p-20"  *ngIf="loadSpainner">
+    <app-spinner></app-spinner>
+</div>

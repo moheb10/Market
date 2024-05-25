@@ -1,0 +1,20 @@
+.price{
+    background-color: bisque;
+    border-radius: 20px;
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+    flex: auto;
+}
+.card-style{
+    border-radius: 10px;
+    transition:width 2s, height 2s;
+    height: auto;
+}
+.card-style:hover{
+    width: 120%;
+    height: 120%;
+}
+.img-card{
+    height: 20%;
+}
