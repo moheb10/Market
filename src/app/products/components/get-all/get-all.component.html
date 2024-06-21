@@ -1,7 +1,7 @@
 <div class="container mt-3" *ngIf="!loadSpainner">
 
 <div class="mb-2 w-25"  >
-    <app-select [data]="categories" [title]="'Categories'" (selectionValue)="getProductsByCategory($event)"></app-select>
+    <app-select [data]="categories"  [title]="'Categories'" (selectionValue)="getProductsByCategory($event)"></app-select>
 </div>
 <hr>
 <div class="row" >

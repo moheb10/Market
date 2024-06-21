@@ -1,1 +1,23 @@
-<p>product-details works!</p>
+<div class="container mt-5" *ngIf="!loadSpainner">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="card">
+          <div class="card-body text-center">
+            <img class="w-100" src="{{data.image}}">
+            <h5 class="card-title">{{data.title}}</h5>
+            <p class="card-text">{{data.description}}</p>
+            <p class="card-text"><strong>Category:</strong> {{data.category}}</p>
+            <p class="card-text"><strong>Count:</strong> {{data.rating.count}}</p>
+            <p class="card-text"><strong>Price:</strong> {{data.price}}</p>
+
+            <a href="#" class="btn btn-primary">Buy Now</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  <div class=" text-center m-30"  *ngIf="loadSpainner">
+    <app-spinner></app-spinner>
+</div>
+  

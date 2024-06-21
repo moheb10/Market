@@ -20,5 +20,8 @@ url:string=enviroment.BaseApi;
   getProductsByCtegories(cat:string){
     return this.http.get(this.url+"products/category/"+cat)
   }
+  getProductDetailsById(id:number){
+    return this.http.get(this.url+"products/"+id)
+  }
   
 }

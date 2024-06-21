@@ -1,7 +1,14 @@
-<img class="img-card" src="{{data.image}}" alt="Card image cap">
-        <div class="card-body">
-            <h5 class="card-title">{{data.title}}</h5>
-            <p class="card-text">{{data.description}}</p>
-            <div class="price">{{data.price}}</div>
-            <a  class="btn btn-primary" (click)="Add()">Add To Cart </a>
+<div>
+    <img class="img-card" src="{{data.image}}" routerLink="/details/{{data.id}}" alt="Card image cap">
+    <div class="card-body">
+        <h5 class="card-title" routerLink="/details/{{data.id}}">{{data.title}}</h5>
+        <p class="card-text" routerLink="/details/{{data.id}}">{{data.description}}</p>
+        <div class="price" routerLink="/details/{{data.id}}">{{data.price}} l.e</div>
+        <a class="btn btn-primary" *ngIf="!addButton"  (click)="addButton=true">Add To Cart </a>
+        <div class="d-flex w-50" *ngIf="addButton">
+            <input type="number" class="form-control" [(ngModel)]="amount">
+            <button class="btn btn-danger" (click)="Add()">Add</button>
         </div>
+    </div>
+
+</div>

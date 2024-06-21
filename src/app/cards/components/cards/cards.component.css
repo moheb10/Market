@@ -1,0 +1,23 @@
+.cart-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    border-bottom: 1px solid #ddd;
+  }
+  .cart-item img {
+    max-width: 100px;
+  }
+  .cart-item .item-info {
+    flex: 1;
+    margin-left: 20px;
+  }
+  .cart-item .item-controls {
+    display: flex;
+    align-items: center;
+  }
+  .cart-item .item-controls input {
+    width: 50px;
+    text-align: center;
+    margin: 0 10px;
+  }

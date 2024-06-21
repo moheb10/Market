@@ -1,1 +1,34 @@
-<p>cards works!</p>
+<div class="container mt-5">
+    <h1 class="mb-4">Shopping Cart</h1>
+    <div class="cart-item" *ngFor="let cartProduct of cartProducts let index= index">
+      <img src="{{cartProduct.item.image}}" alt="Product Image">
+      <div class="item-info">
+        <h5 class="item-name">{{cartProduct.item.title}}</h5>
+        <p class="item-price">{{cartProduct.item.price}}</p>
+      </div>
+      <div class="item-delete p-2">
+        <button class="btn btn-danger" (click)="deleteItem(index)">
+           <i class="fa-solid fa-trash"></i>
+        </button>
+      </div>
+      <div class="item-controls p-2">
+        <button class="btn btn-secondary btn-sm" (click)="decreaseQuantity(index)">-</button>
+        <input type="number" class="item-quantity" [(ngModel)]="cartProduct.quantity" (change)="detectQuantity(index)">
+        <button class="btn btn-secondary btn-sm" (click)="inreaseQuantity(index)" >+</button>
+      </div>
+      <div class="item-total p-2">
+        <h5 class="total-price">{{cartProduct.quantity * cartProduct.item.price}}</h5>
+      </div>
+      
+    </div>
+    <!-- Add more cart items as needed -->
+
+    <div class="text-right mt-4">
+      <h4>Total: <span id="cart-total"> {{total}} L.E</span></h4>
+    </div>
+    <div class="mt-4">
+      <button class="btn btn-success" (click)="addCart()">
+        Order Now<i class="fa-duotone fa-cart-shopping-fast"></i></button>
+    </div>
+  </div>
+  <div class="alert alert-success m-2" *ngIf="success" role="alert"><strong>Well done!</strong> your order is succefully Send</div>

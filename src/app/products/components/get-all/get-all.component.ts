@@ -1,5 +1,6 @@
 import { Component, EventEmitter, OnInit } from '@angular/core';
 import { ProductService } from '../../services/product.service';
+import { product } from '../../Modules/product';
 
 @Component({
   selector: 'app-get-all',
@@ -7,7 +8,7 @@ import { ProductService } from '../../services/product.service';
   styleUrls: ['./get-all.component.css'],
 })
 export class GetAllComponent implements OnInit {
-  products: any[] = [];
+  products: product[] = [];
   categories: any[] = [];
   loadSpainner:boolean=false;
   cartProducts:any[]=[];
@@ -51,7 +52,7 @@ export class GetAllComponent implements OnInit {
     debugger;
     let cat = event.target.value;
     debugger;
-    if (cat == "all") this.getProducts();
+    if (cat == "All") this.getProducts();
     else this.productsByCategory(cat);
     console.log(this.products);
     console.log(event.target.value);
@@ -76,24 +77,24 @@ export class GetAllComponent implements OnInit {
     //JSON.stringify(); //send data
     //JSON.parse(); //Revice the data
     //localStorage.setItem("cart",JSON.stringify(event));
-
+debugger;
     if("cart" in localStorage)
     {
       this.cartProducts = JSON.parse(localStorage.getItem("cart")!);
-      var existItem = this.cartProducts.find(item => item.id == event.id);
+      const id = event.item.id;
+      var existItem = this.cartProducts.find(item => item.item.id == event.item.id);
       if(existItem){
+       
         alert("this item already exist in your cart");
-        return;
+      }else{
+        this.cartProducts.push(event);
+        localStorage.setItem("cart",JSON.stringify(this.cartProducts))
       }
-      this.cartProducts.push(event);
-
-      localStorage.setItem("cart",JSON.stringify(this.cartProducts))
+      
     }else{
       this.cartProducts.push(event);
       localStorage.setItem("cart",JSON.stringify(this.cartProducts))
     }
-      
-
    
   }
 }
